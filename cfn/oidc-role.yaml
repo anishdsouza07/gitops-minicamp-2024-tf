@@ -25,7 +25,7 @@ Resources:
             Action: 'sts:AssumeRoleWithWebIdentity'
             Condition:
               StringLike:
-                'token.actions.githubusercontent.com:sub': !Sub 'repo:${Repo}:*'
+                'token.actions.githubusercontent.com:sub': !Sub 'repo:anishdsouza07/gitops-minicamp-2024-tf:*'
               StringEquals:
                 'token.actions.githubusercontent.com:aud': sts.amazonaws.com
       ManagedPolicyArns:

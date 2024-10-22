@@ -21,6 +21,13 @@ jobs:
         working-directory: ./terraform
 
     steps:
+
+    - name: Configure AWS Credentials for China region audience
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        audience: sts.amazonaws.com.
+        aws-region: us-east-1
+        role-to-assume: ${{secrets.ROLE_TO_ASSUME}}
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v4
