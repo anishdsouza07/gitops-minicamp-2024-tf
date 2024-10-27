@@ -2,6 +2,7 @@ name: 'Run Infracost'
 on:
     pull_request:
       types: [opened, synchronize, closed]
+    #The jobs you'll run
 jobs:
     infracost-pull-request-checks:
       name: Infracost Pull Request Checks
