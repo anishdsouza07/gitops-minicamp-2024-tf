@@ -2,6 +2,7 @@ name: 'Run Infracost'
 on:
     pull_request:
       types: [opened, synchronize, closed]
+    #The jobs you'll run
 jobs:
     infracost-pull-request-checks:
       name: Infracost Pull Request Checks
@@ -56,5 +57,6 @@ jobs:
                                        --github-token=${{ github.token }} \
                                        --pull-request=${{ github.event.pull_request.number }} \
                                        --behavior=update
+                                       --policy-path ./policies/cost.rego
   
     
