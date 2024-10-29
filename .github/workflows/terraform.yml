@@ -59,7 +59,6 @@ jobs:
 
     - name: Run OPA Tests
       env:
-        GH_TOKEN: ${{ github.token }}
       run: |
         opaout=$(opa eval --data ../policies/instance-policy.rego --input /tmp/plan.json "data.terraform.deny" | jq -r '.result[].expressions[].value[]')
         [ -z "$opaout" ] && exit 0 || echo "$opaout" && gh pr comment ${{ github.event.pull_request.number }} --body "### $opaout" && exit 1
