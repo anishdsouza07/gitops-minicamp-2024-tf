@@ -4,6 +4,7 @@ import rego.v1
 
 allowed_instances := ["t3.micro","t2.small"]
 
+# New deny message
 deny[msg] if {
 	some resource in input.resource_changes
 	resource.type == "aws_instance"
