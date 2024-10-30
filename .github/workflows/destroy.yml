@@ -1,4 +1,4 @@
-name: 'Apply'
+name: 'Destroy'
 
 on: workflow_dispatch
   
@@ -46,5 +46,5 @@ jobs:
       run: terraform plan -input=false
 
       # Terraform Apply
-    - name: Terraform Apply
-      run: terraform apply -input=false -auto-approve
+    - name: Terraform Destroy
+      run: terraform destroy -input=false -auto-approve
